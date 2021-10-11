@@ -8,7 +8,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      grind.belongsToMany(models.order, {
+        through: "orderCoffees",
+        foreignKey: "grindId",
+      });
     }
   }
   grind.init(
