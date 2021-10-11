@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       lastName: { type: DataTypes.STRING, allowNull: false },
       phone: { type: DataTypes.INTEGER, allowNull: false },
       address: { type: DataTypes.STRING, allowNull: false },
-      isAdmin: { type: DataTypes.BOOLEAN },
+      isAdmin: { type: DataTypes.BOOLEAN, defaultValue: false },
     },
     {
       sequelize,

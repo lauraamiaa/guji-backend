@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   order.init(
     {
-      status: DataTypes.BOOLEAN,
+      status: { type: DataTypes.BOOLEAN, defaultValue: true },
     },
     {
       sequelize,
