@@ -1,0 +1,21 @@
+{
+  "development": {
+    "url": "postgres://infywfly:MkswCGG2byR5Kh6TkG_k8G5zN_Uwg1ui@surus.db.elephantsql.com/infywfly",
+    "dialect": "postgres",
+    "operatorsAliases": "0"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
