@@ -37,23 +37,22 @@ router.post("/login", async (req, res, next) => {
 });
 
 router.post("/signup", async (req, res) => {
-  const { email, password, firstName, lastName, phone, address } = req.body;
-  if (!email || !password || !firstName || !lastName || !phone || !address) {
+  const { email, password, firstName, lastName, phone } = req.body;
+  if (!email || !password || !firstName || !lastName || !phone) {
     return res.status(400).send("Please provide all information");
   }
 
   try {
+    console.log("got here", req.body);
     const newCustomer = await Customer.create({
       email,
       password: bcrypt.hashSync(password, SALT_ROUNDS),
       firstName,
       lastName,
       phone,
-      address,
     });
 
     delete newCustomer.dataValues["password"]; // don't send back the password hash
-
     const token = toJWT({ customerId: newCustomer.id });
 
     res.status(201).json({ token, ...newCustomer.dataValues });

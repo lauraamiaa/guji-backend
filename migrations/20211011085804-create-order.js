@@ -8,6 +8,25 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      streetAndHouseNumber: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      additionalInfo: {
+        type: Sequelize.STRING,
+      },
+      postalCode: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      city: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      country: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
       status: {
         type: Sequelize.BOOLEAN,
         defaultValue: true,
