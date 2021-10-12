@@ -20,11 +20,6 @@ if (process.env.DELAY) {
   });
 }
 
-// GET endpoint for testing purposes, can be removed
-app.get("/", (req, res) => {
-  res.send("Hi from express");
-});
-
 app.use("/", authRouter);
 
 app.listen(PORT, () => {
