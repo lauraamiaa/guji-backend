@@ -13,14 +13,6 @@ module.exports = (sequelize, DataTypes) => {
         through: "orderCoffees",
         foreignKey: "orderId",
       });
-      order.belongsToMany(models.weight, {
-        through: "orderCoffees",
-        foreignKey: "orderId",
-      });
-      order.belongsToMany(models.grind, {
-        through: "orderCoffees",
-        foreignKey: "orderId",
-      });
     }
   }
   order.init(

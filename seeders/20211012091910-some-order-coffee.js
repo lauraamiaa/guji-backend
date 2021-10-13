@@ -7,9 +7,10 @@ module.exports = {
       [
         {
           orderId: 1,
-          grindId: 1,
-          weightId: 1,
           coffeeId: 1,
+          weight: "250 GR",
+          grind: "whole beans",
+          quantity: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

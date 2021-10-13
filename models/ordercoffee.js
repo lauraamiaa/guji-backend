@@ -10,14 +10,15 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       orderCoffee.belongsTo(models.order);
       orderCoffee.belongsTo(models.coffee);
-      orderCoffee.belongsTo(models.weight);
-      orderCoffee.belongsTo(models.grind);
     }
   }
   orderCoffee.init(
     {
       coffeeId: DataTypes.INTEGER,
       orderId: DataTypes.INTEGER,
+      weight: DataTypes.STRING,
+      grind: DataTypes.STRING,
+      quantity: DataTypes.INTEGER,
     },
     {
       sequelize,

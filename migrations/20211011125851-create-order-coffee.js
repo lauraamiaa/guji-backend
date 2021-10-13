@@ -26,23 +26,14 @@ module.exports = {
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
       },
-      weightId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "weights",
-          key: "id",
-        },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
+      weight: {
+        type: Sequelize.STRING,
       },
-      grindId: {
+      grind: {
+        type: Sequelize.STRING,
+      },
+      quantity: {
         type: Sequelize.INTEGER,
-        references: {
-          model: "grinds",
-          key: "id",
-        },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
       },
       createdAt: {
         allowNull: false,
