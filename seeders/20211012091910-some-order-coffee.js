@@ -11,6 +11,7 @@ module.exports = {
           weight: "250 GR",
           grind: "whole beans",
           quantity: 1,
+          totalPrice: 7.5,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

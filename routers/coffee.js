@@ -32,13 +32,11 @@ router.get("/:id", async (req, res, next) => {
 });
 
 // edit coffee as admin
-router.patch("/:id", async (req, res, next) => {
+router.patch("/:id", authMiddleware, async (req, res, next) => {
   try {
     const { name, price, longDescription, shortDescription } = req.body;
     const coffeeId = parseInt(req.params.id);
 
-    // find the coffee you want to update
-    // findByPk
     const coffeeToUpdate = await Coffee.findByPk(coffeeId);
 
     const updatedCoffee = await coffeeToUpdate.update({
@@ -48,6 +46,22 @@ router.patch("/:id", async (req, res, next) => {
       shortDescription,
     });
     res.send(updatedCoffee);
+  } catch (e) {
+    console.log(e.message);
+    next(e);
+  }
+});
+
+// delete coffee as admin
+router.delete("/:id", async (req, res, next) => {
+  try {
+    const coffeeId = parseInt(req.params.id);
+    const coffee = await Coffee.findByPk(coffeeId);
+    if (!coffee) {
+      return res.status(404).send({ message: "Product not found" });
+    }
+    coffee.destroy();
+    res.status(204).send();
   } catch (e) {
     console.log(e.message);
     next(e);
