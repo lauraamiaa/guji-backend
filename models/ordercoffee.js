@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       grind: DataTypes.STRING,
       quantity: DataTypes.INTEGER,
       totalPrice: DataTypes.DECIMAL,
+      status: DataTypes.STRING,
     },
     {
       sequelize,

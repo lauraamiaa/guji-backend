@@ -8,6 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      firstName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      lastName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       streetAndHouseNumber: {
         allowNull: false,
         type: Sequelize.STRING,
@@ -26,10 +34,6 @@ module.exports = {
       country: {
         allowNull: false,
         type: Sequelize.STRING,
-      },
-      status: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: true,
       },
       createdAt: {
         allowNull: false,

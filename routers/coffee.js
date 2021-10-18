@@ -53,8 +53,7 @@ router.patch("/:id", authMiddleware, async (req, res, next) => {
 });
 
 // delete coffee as admin
-// authMiddleware
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:id", authMiddleware, async (req, res, next) => {
   try {
     const coffeeId = parseInt(req.params.id);
     const coffee = await Coffee.findByPk(coffeeId);
@@ -70,8 +69,7 @@ router.delete("/:id", async (req, res, next) => {
 });
 
 //create a new coffee as admin
-// authMiddleware
-router.post("/", async (req, res, next) => {
+router.post("/", authMiddleware, async (req, res, next) => {
   try {
     const { name, price, imageUrl, longDescription, shortDescription } =
       req.body;

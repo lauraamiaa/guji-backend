@@ -6,7 +6,8 @@ module.exports = {
       "orders",
       [
         {
-          status: true,
+          firstName: "Test",
+          lastName: "Order",
           customerId: 1,
           streetAndHouseNumber: "Street 1",
           additionalInfo: "Suite 1",

@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   order.init(
     {
-      status: { type: DataTypes.BOOLEAN, defaultValue: true },
+      firstName: { type: DataTypes.STRING, allowNull: false },
+      lastName: { type: DataTypes.STRING, allowNull: false },
       streetAndHouseNumber: { type: DataTypes.STRING, allowNull: false },
       additionalInfo: { type: DataTypes.STRING },
       postalCode: { type: DataTypes.STRING },
