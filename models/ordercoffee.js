@@ -19,8 +19,6 @@ module.exports = (sequelize, DataTypes) => {
       weight: DataTypes.STRING,
       grind: DataTypes.STRING,
       quantity: DataTypes.INTEGER,
-      totalPrice: DataTypes.DECIMAL,
-      status: DataTypes.STRING,
     },
     {
       sequelize,

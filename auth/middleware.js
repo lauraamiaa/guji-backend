@@ -20,7 +20,7 @@ async function auth(req, res, next) {
     }
 
     // add user object to request
-    req.user = customer;
+    req.customer = customer;
     // next handler
     return next();
   } catch (error) {

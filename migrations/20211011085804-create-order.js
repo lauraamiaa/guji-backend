@@ -35,6 +35,12 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
+      totalPrice: {
+        type: Sequelize.DECIMAL,
+      },
+      status: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

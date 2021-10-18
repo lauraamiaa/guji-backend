@@ -35,12 +35,6 @@ module.exports = {
       quantity: {
         type: Sequelize.INTEGER,
       },
-      totalPrice: {
-        type: Sequelize.DECIMAL,
-      },
-      status: {
-        type: Sequelize.STRING,
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

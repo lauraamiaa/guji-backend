@@ -24,6 +24,8 @@ module.exports = (sequelize, DataTypes) => {
       postalCode: { type: DataTypes.STRING },
       city: { type: DataTypes.STRING },
       country: { type: DataTypes.STRING },
+      totalPrice: DataTypes.DECIMAL,
+      status: DataTypes.STRING,
     },
     {
       sequelize,

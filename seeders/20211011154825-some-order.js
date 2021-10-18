@@ -6,9 +6,11 @@ module.exports = {
       "orders",
       [
         {
+          customerId: 1,
+          totalPrice: 7.5,
+          status: "created",
           firstName: "Test",
           lastName: "Order",
-          customerId: 1,
           streetAndHouseNumber: "Street 1",
           additionalInfo: "Suite 1",
           postalCode: "1058 DE",
