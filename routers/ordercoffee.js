@@ -12,21 +12,29 @@ const router = new Router();
 // get all orders
 router.get("/", async (req, res, next) => {
   try {
-    const allOrders = await OrderCoffee.findAll({
-      include: [
-        {
-          model: Order,
-          include: {
-            model: Customer,
-          },
-        },
+    // if we want to do this per customer => customerId
+    // const allOrders = await Order.findAll({ where: { customerId }, include: [Customer] });
 
+    const allOrders = await Order.findAll({ include: [Customer] });
+
+    const allItems = await OrderCoffee.findAll({
+      include: [
         {
           model: Coffee,
         },
       ],
     });
-    res.send(allOrders);
+
+    const parsedOrders = allOrders.map((o) => o.get({ plain: true }));
+    const parsedItems = allItems.map((o) => o.get({ plain: true }));
+
+    const fullOrders = parsedOrders.map((o) => {
+      const itemsForOrder = parsedItems.filter((item) => item.orderId === o.id);
+      return { ...o, items: itemsForOrder };
+    });
+
+    console.log(fullOrders[0].items);
+    res.send(fullOrders);
   } catch (e) {
     next(e);
   }
@@ -43,7 +51,6 @@ router.post("/", authMiddleware, async (req, res, next) => {
       status: "created",
       ...shippingData,
     });
-    console.log("do i have cart", cart);
 
     const arrayOfPromises = cart.map(async (item) => {
       const orderCoffee = await OrderCoffee.create({
