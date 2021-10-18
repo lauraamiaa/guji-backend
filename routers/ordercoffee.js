@@ -33,8 +33,31 @@ router.get("/", async (req, res, next) => {
       return { ...o, items: itemsForOrder };
     });
 
-    console.log(fullOrders[0].items);
+    // console.log(fullOrders[0].items);
     res.send(fullOrders);
+  } catch (e) {
+    next(e);
+  }
+});
+
+// get order by id
+router.get("/:id", async (req, res, next) => {
+  try {
+    const orderId = parseInt(req.params.id);
+
+    const order = await Order.findByPk(orderId, { include: [Customer] });
+
+    const allItems = await OrderCoffee.findAll({
+      where: { orderId: orderId },
+      include: [{ model: Coffee }],
+    });
+
+    const parsedOrders = order.get({ plain: true });
+    const parsedItems = allItems.map((o) => o.get({ plain: true }));
+
+    const fullOrder = { ...parsedOrders, items: parsedItems };
+
+    res.send(fullOrder);
   } catch (e) {
     next(e);
   }
