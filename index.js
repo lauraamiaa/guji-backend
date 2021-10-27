@@ -7,14 +7,14 @@ const coffeeRouter = require("./routers/coffee");
 const orderRouter = require("./routers/ordercoffee");
 const { PORT } = require("./config/constants");
 
+app.use(corsMiddleWare());
+
 const app = express();
 
 app.use(loggerMiddleWare("dev"));
 
 const bodyParserMiddleWare = express.json();
 app.use(bodyParserMiddleWare);
-
-app.use(corsMiddleWare());
 
 if (process.env.DELAY) {
   app.use((req, res, next) => {
