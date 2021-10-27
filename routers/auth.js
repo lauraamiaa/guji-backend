@@ -43,7 +43,6 @@ router.post("/signup", async (req, res) => {
   }
 
   try {
-    console.log("got here", req.body);
     const newCustomer = await Customer.create({
       email,
       password: bcrypt.hashSync(password, SALT_ROUNDS),
@@ -52,7 +51,7 @@ router.post("/signup", async (req, res) => {
       phone,
     });
 
-    delete newCustomer.dataValues["password"]; // don't send back the password hash
+    delete newCustomer.dataValues["password"];
     const token = toJWT({ customerId: newCustomer.id });
 
     res.status(201).json({ token, ...newCustomer.dataValues });
