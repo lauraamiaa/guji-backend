@@ -7,9 +7,8 @@ const coffeeRouter = require("./routers/coffee");
 const orderRouter = require("./routers/ordercoffee");
 const { PORT } = require("./config/constants");
 
-app.use(corsMiddleWare());
-
 const app = express();
+app.use(corsMiddleWare());
 
 app.use(loggerMiddleWare("dev"));
 
